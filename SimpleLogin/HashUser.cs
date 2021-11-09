@@ -10,6 +10,7 @@ namespace SimpleLogin
     class HashUser
     {
         DataAccess DA = new DataAccess();
+        //Creates user to the DB
         public void GenerateUser(string username, string password)
         {
             string tempSalt = Convert.ToBase64String(GenerateSalt());
@@ -17,6 +18,7 @@ namespace SimpleLogin
             DA.RegisterUser(user);
         }
 
+        //Generate the salt we use to hash password
         public byte[] GenerateSalt()
         {
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
@@ -28,14 +30,7 @@ namespace SimpleLogin
             };
         }
 
-        public byte[] HashDataSHA256(byte[] toHash)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                return sha256.ComputeHash(toHash);
-            }
-        }
-
+        //Hash the password and salt with use of combine
         public byte[] HashPasswordWithSalt(byte[] salt, byte[] password)
         {
             using (var sha256 = SHA256.Create())

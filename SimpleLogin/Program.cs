@@ -9,6 +9,7 @@ namespace SimpleLogin
             UI();
         }
 
+        //Simpel UI
         static void UI()
         {
             LoginValidator LV = new LoginValidator();

@@ -11,6 +11,7 @@ namespace SimpleLogin
     {
         static string connectionString = "Server=DESKTOP-M2KNKSU;Database=Login;Trusted_Connection=True;";
 
+        //Post user to DB
         public void RegisterUser(User user)
         {
             try
@@ -41,6 +42,7 @@ namespace SimpleLogin
             }
         }
 
+        //Retrive the user info by username
         public User Login(string username)
         {
             try

@@ -10,6 +10,8 @@ namespace SimpleLogin
     {
         HashUser hu = new HashUser();
         DataAccess da = new DataAccess();
+
+        //Validate userinput agenst DB data
         public string ValidateLogin(string username, string password)
         {
             User temp = da.Login(username);
